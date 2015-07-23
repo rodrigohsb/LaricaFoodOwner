@@ -1,5 +1,13 @@
 package com.laricafood.owner.app.util;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
+import com.google.gson.Gson;
+import com.laricafood.owner.app.bean.User;
+import com.laricafood.owner.app.persistence.UserRepository;
+
 import java.io.InputStream;
 import java.io.OutputStream;
 
@@ -24,5 +32,40 @@ public class Utils
         } catch (Exception ex)
         {
         }
+    }
+
+    public static User getUser (Context ctx)
+    {
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(ctx);
+
+        // Busca no cache
+        String json = sharedPreferences.getString(Constants.USER, Constants.USER);
+        if (json != null)
+        {
+            try
+            {
+                return new Gson().fromJson(json, User.class);
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+
+        //Busca no banco
+        try
+        {
+            User user = UserRepository.getInstance(ctx).getUser();
+            //TODO Colocar no cache
+            return user;
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            //Não tem no cache e nem no banco.
+            //TODO Buscar no server!!
+        }
+        return null;
     }
 }

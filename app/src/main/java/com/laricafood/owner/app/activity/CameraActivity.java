@@ -81,7 +81,7 @@ public class CameraActivity extends AppCompatActivity
             }
         });
         */
-        
+
         buttonCapture.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -280,12 +280,10 @@ public class CameraActivity extends AppCompatActivity
                 it.setData(Uri.fromFile(pictureFile));
                 startActivityForResult(it, 1000);
 
-            } 
-            catch (FileNotFoundException e)
+            } catch (FileNotFoundException e)
             {
                 Log.d("CameraActivity", "File not found: " + e.getMessage());
-            } 
-            catch (IOException e)
+            } catch (IOException e)
             {
                 Log.d("CameraActivity", "Error accessing file: " + e.getMessage());
             }

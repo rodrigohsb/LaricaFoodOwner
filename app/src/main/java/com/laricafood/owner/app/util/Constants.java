@@ -21,8 +21,6 @@ public class Constants
 
     public static final String SEND_TO_SERVER = "SEND_TO_SERVER";
 
-    public static final String CAME_FROM_SPLASH_SCREEN_OR_TUTORIAL = "cameFromSplashOrTutorial";
-
     public static final String ALREADY_SAW_TUTORIAL_BUT_NOT_LOGGED_ID = "alreadySawTutorialButNotLoggedIn";
 
     public static final String LOGGED_IN_BUT_HAS_NO_ACCOUNT = "loggedButHasNoAccount";
@@ -34,8 +32,6 @@ public class Constants
     public static final String LARICA = "larica";
 
     public static final String LARICAS = "laricas";
-
-    public static Location LOCATION = null;
 
 //    public static final String APPLICATION_PUBLIC_KEY = "AIzaSyD-9zczX995y8IkVSjWR_oB0Rjz7nRVGOI";
 

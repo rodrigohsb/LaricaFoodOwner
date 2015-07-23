@@ -6,21 +6,20 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
-import com.google.gson.Gson;
 import com.laricafood.owner.app.R;
 import com.laricafood.owner.app.bean.User;
-import com.laricafood.owner.app.persistence.UserRepository;
 import com.laricafood.owner.app.service.RegistrationService;
 import com.laricafood.owner.app.util.Constants;
+import com.laricafood.owner.app.util.Utils;
 
 /**
  * Created by Rodrigo on 19/06/15.
  */
-public class SplashActivity extends ActionBarActivity
+public class SplashActivity extends AppCompatActivity
 {
 
     private Context ctx;
@@ -42,8 +41,8 @@ public class SplashActivity extends ActionBarActivity
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(ctx);
 
-        user = getUser();
-        
+        user = Utils.getUser(ctx);
+
         /** Primeiro acesso ou limpou o cache */
         Boolean isFirtTimeOrCleanCache = sharedPreferences.getBoolean(Constants.IS_FIRST_TIME, true);
 
@@ -59,7 +58,6 @@ public class SplashActivity extends ActionBarActivity
         else if (alreadySawTutorial && user == null)
         {
             it = new Intent(ctx, FacebookActivity.class);
-            it.putExtra(Constants.CAME_FROM_SPLASH_SCREEN_OR_TUTORIAL, true);
         }
         else
         {
@@ -69,7 +67,7 @@ public class SplashActivity extends ActionBarActivity
 
             if (hasNoAccount)
             {
-                it = new Intent(ctx, NewAccountActivity.class);
+                it = new Intent(ctx, PaymentActivity.class);
             }
             else
             {
@@ -87,35 +85,6 @@ public class SplashActivity extends ActionBarActivity
                 finish();
             }
         }, Constants.SPLASH_TIME_OUT);
-    }
-
-    private User getUser ()
-    {
-
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(ctx);
-
-        String json = sharedPreferences.getString(Constants.USER, Constants.USER);
-        if (json != null)
-        {
-            try
-            {
-                return new Gson().fromJson(json, User.class);
-            } catch (Exception e)
-            {
-                e.printStackTrace();
-            }
-        }
-        if (user == null)
-        {
-            try
-            {
-                return UserRepository.getInstance(ctx).getUser();
-            } catch (Exception e)
-            {
-                e.printStackTrace();
-            }
-        }
-        return null;
     }
 
     @Override

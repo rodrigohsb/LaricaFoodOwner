@@ -11,7 +11,6 @@ import android.view.View;
 
 import com.laricafood.owner.app.R;
 import com.laricafood.owner.app.async.NewAccountAsyncTask;
-import com.laricafood.owner.app.bean.Type;
 import com.laricafood.owner.app.billing.IabHelper;
 import com.laricafood.owner.app.billing.IabResult;
 import com.laricafood.owner.app.billing.Inventory;
@@ -140,7 +139,7 @@ public class PaymentActivity extends AppCompatActivity
                 bld.setNeutralButton("OK", null);
                 bld.create().show();
 
-                new NewAccountAsyncTask(Type.COMERCIANTE, ctx).execute();
+                new NewAccountAsyncTask(ctx).execute();
             }
             else
             {

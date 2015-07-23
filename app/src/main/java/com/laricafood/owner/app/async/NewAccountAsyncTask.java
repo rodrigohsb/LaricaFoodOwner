@@ -10,7 +10,6 @@ import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 import com.laricafood.owner.app.activity.HomeActivity;
-import com.laricafood.owner.app.bean.Type;
 import com.laricafood.owner.app.service.UserService;
 import com.laricafood.owner.app.util.Constants;
 
@@ -20,15 +19,13 @@ import com.laricafood.owner.app.util.Constants;
 public class NewAccountAsyncTask extends AsyncTask<Void, Void, Boolean>
 {
 
-    private Type type;
     private Context ctx;
     private ProgressDialog dialog;
 
     private SharedPreferences sharedPreferences;
 
-    public NewAccountAsyncTask (Type type, Context ctx)
+    public NewAccountAsyncTask (Context ctx)
     {
-        this.type = type;
         this.ctx = ctx;
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(ctx);
     }
@@ -49,14 +46,7 @@ public class NewAccountAsyncTask extends AsyncTask<Void, Void, Boolean>
 
         boolean done = true;
 
-        if (type == Type.CLIENTE)
-        {
-            //TODO Enviar o facebookId com o tipo para o server
-        }
-        else
-        {
-            //TODO Enviar o facebookId com o tipo e as informações do pagamento para o server
-        }
+        //TODO Enviar o facebookId com o tipo e as informações do pagamento para o server
 
         try
         {

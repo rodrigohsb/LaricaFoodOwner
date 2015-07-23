@@ -16,8 +16,10 @@ import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.laricafood.owner.app.R;
+import com.laricafood.owner.app.bean.User;
 import com.laricafood.owner.app.service.RegistrationService;
 import com.laricafood.owner.app.util.Constants;
+import com.laricafood.owner.app.util.Utils;
 
 import java.util.Arrays;
 
@@ -28,7 +30,6 @@ public class FacebookActivity extends AppCompatActivity
 {
 
     private Context ctx;
-    private Boolean cameFromTutorial = false;
 
     private CallbackManager callbackManager;
 
@@ -43,12 +44,6 @@ public class FacebookActivity extends AppCompatActivity
 
         setContentView(R.layout.activity_fb);
 
-        Bundle bundle = getIntent().getExtras();
-        if (bundle != null)
-        {
-            cameFromTutorial = bundle.getBoolean(Constants.CAME_FROM_SPLASH_SCREEN_OR_TUTORIAL, false);
-        }
-
         LoginButton loginButton = (LoginButton) findViewById(R.id.loginButton);
         loginButton.setReadPermissions(Arrays.asList("public_profile", "email", "user_friends"));
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>()
@@ -56,12 +51,18 @@ public class FacebookActivity extends AppCompatActivity
             @Override
             public void onSuccess (LoginResult loginResult)
             {
-                startService(new Intent(ctx, RegistrationService.class));
-                
-                if (cameFromTutorial)
+                User user = Utils.getUser(ctx);
+
+                if (user == null)
                 {
-                    startActivity(new Intent(ctx, NewAccountActivity.class));
+                    startService(new Intent(ctx, RegistrationService.class));
+                    startActivity(new Intent(ctx, PaymentActivity.class));
                 }
+                else
+                {
+                    startActivity(new Intent(ctx, HomeActivity.class));
+                }
+
                 finish();
             }
 

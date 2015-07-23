@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="app_launcher_name">LaricaFood - Dono</string>
     <string name="app_name">LaricaFood</string>
     <string name="action_search">Buscar</string>
     <string name="action_filter">Filtrar</string>

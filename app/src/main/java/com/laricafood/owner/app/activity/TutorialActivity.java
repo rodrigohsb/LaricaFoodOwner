@@ -42,9 +42,7 @@ public class TutorialActivity extends AppCompatActivity
                 {
                     sharedPreferences.edit().putBoolean(Constants.IS_FIRST_TIME, false).apply();
 
-                    Intent it = new Intent(ctx, FacebookActivity.class);
-                    it.putExtra(Constants.CAME_FROM_SPLASH_SCREEN_OR_TUTORIAL, true);
-                    startActivity(it);
+                    startActivity(new Intent(ctx, FacebookActivity.class));
                     finish();
                 }
                 else
