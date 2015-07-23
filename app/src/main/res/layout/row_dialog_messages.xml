@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="2dip">
+
+    <!--  Image -->
+    <ImageView
+        android:id="@+id/messageIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="5dip"
+        android:padding="5dip"
+        android:src="@drawable/ic_unread"/>
+
+    <!-- Titulo -->
+    <TextView
+        android:id="@+id/messageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/messageIcon"
+        android:text="26 e 27/jun - Food Truck na Zn. Norte"
+        android:textColor="#000000"
+        android:textSize="16dip"
+        android:textStyle="bold"/>
+
+    <!-- Conteudo -->
+    <TextView
+        android:id="@+id/messageContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/messageTitle"
+        android:layout_marginTop="7dip"
+        android:layout_toRightOf="@+id/messageIcon"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="Conteúdo da mensagem.Conteúdo da mensagem.Conteúdo da mensagem.Conteúdo da mensagem.Conteúdo da mensagem."
+        android:textSize="13dip"
+        android:textStyle="bold"/>
+
+</RelativeLayout>

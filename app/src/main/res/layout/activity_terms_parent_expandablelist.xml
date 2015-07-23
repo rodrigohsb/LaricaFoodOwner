@@ -1,0 +1,11 @@
+<CheckedTextView
+    android:id="@+id/textView1"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="60dp"
+    android:layout_marginLeft="5dp"
+    android:gravity="center_vertical"
+    android:padding="10dp"
+    android:textColor="@color/actionbar_background"
+    android:textSize="16dp"
+    android:textStyle="bold"/>

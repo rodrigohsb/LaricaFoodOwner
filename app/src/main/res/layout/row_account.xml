@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="5dip">
+
+    <!-- Nome-->
+    <TextView
+        android:id="@+id/accountTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Mc Roger"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
+
+    <!-- ARROW -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/title"
+        android:layout_marginRight="5dip"
+        android:layout_marginTop="25dp"
+        android:gravity="right"
+        android:src="@drawable/arrow"/>
+
+    <!-- STATUS -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/accountTitle"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="15dip"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="13dp"
+            android:layout_height="13dp">
+
+            <ImageView
+                android:id="@+id/accountStatusIcon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_closed"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp">
+
+            <TextView
+                android:id="@+id/accountStatusText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Em aprovação"
+                android:textSize="14dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Aberto / Fechado -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/accountTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dip"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="13dp"
+            android:layout_height="13dp">
+
+            <ImageView
+                android:id="@+id/accountIsOpenIcon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp">
+
+            <TextView
+                android:id="@+id/accountIsOpenText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="14dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

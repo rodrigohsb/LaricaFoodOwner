@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/newAccountTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Escolha seu perfil:"
+        android:textColor="@color/darkorange"
+        android:textSize="22dp"
+        android:textStyle="bold"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroupNewAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newAccountTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp">
+
+        <RadioButton
+            android:id="@+id/radioButtonPerfilCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cliente"
+            android:textColor="@color/darkorange"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Uso gratuito."
+            android:textColor="@color/actionbar_background"
+            android:textSize="12dp"
+            android:textStyle="italic"/>
+
+        <RadioButton
+            android:id="@+id/radioButtonPerfilComerciante"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Comerciante"
+            android:textColor="@color/darkorange"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Três primeiros meses grátis. Após R$ 2.99/mês."
+            android:textColor="@color/actionbar_background"
+            android:textSize="12dp"
+            android:textStyle="italic"/>
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/newAccountChangePerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="60dp"
+            android:text="Você poderá alterar seu perfil quando quiser."
+            android:textSize="14dp"
+            android:textStyle="bold|italic"/>
+
+        <Button
+            android:id="@+id/buttonNewAccount"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:background="@color/actionbar_background"
+            android:text="Entrar"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/newAccountTerms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:text="Termos e regulamento."
+            android:textSize="13dp"
+            android:textStyle="italic"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    package="com.laricafood.owner.app"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/CustomActionBarTheme">
+        <activity
+            android:name=".activity.SplashActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.FacebookActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".activity.TutorialActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".activity.HomeActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".activity.AccountActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".activity.HomeActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.HomeActivity"/>
+        </activity>
+
+        <activity
+            android:name=".activity.CameraActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".activity.CameraPreviewActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".activity.NewEstabelecimentoActivity"
+            android:parentActivityName=".activity.AccountActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.AccountActivity"/>
+        </activity>
+
+        <activity
+            android:name=".activity.NewAccountActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".activity.EditEstabelecimentoActivity"
+            android:parentActivityName=".activity.AccountActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.AccountActivity"/>
+        </activity>
+
+        <activity
+            android:name=".activity.MessagesActivity"
+            android:parentActivityName=".activity.AccountActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.AccountActivity"/>
+        </activity>
+
+        <activity
+            android:name=".activity.MessageDetailsActivity"
+            android:parentActivityName=".activity.MessagesActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MessagesActivity"/>
+        </activity>
+
+        <activity
+            android:name=".activity.SwapAccountActivity"
+            android:parentActivityName=".activity.AccountActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.AccountActivity"/>
+        </activity>
+
+        <activity
+            android:name=".activity.MessagesPushActivity"
+            android:parentActivityName=".activity.HomeActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.HomeActivity"/>
+        </activity>
+
+        <activity
+            android:name=".activity.TermsActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".activity.NewAccountActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.NewAccountActivity"/>
+        </activity>
+
+        <activity
+            android:name=".activity.PaymentActivity"
+            android:parentActivityName=".activity.NewAccountActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.NewAccountActivity"/>
+        </activity>
+
+
+        <activity
+            android:name=".activity.ResultActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".activity.HomeActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.HomeActivity"/>
+        </activity>
+
+        <activity
+            android:name=".activity.DetailsActivity"
+            android:parentActivityName=".activity.ResultActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.ResultActivity"/>
+        </activity>
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"/>
+
+        <!-- GCM RECEIVER -->
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.laricafood.app"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- GCM LISTENER -->
+        <service
+            android:name=".service.GcmListener"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+
+        <!-- INSTANCE ID LISTENER -->
+        <service
+            android:name=".service.InstanceIDListener"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".service.RegistrationService"
+            android:exported="false">
+        </service>
+
+    </application>
+
+    <!-- Saber se internet do aparelho esta ativa -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <!-- Usar internet do aparelho -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- Permissão utilizada para travar a tela, e evitar o modo de espera. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <!-- Filtro do Google Play para celulares com câmera -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true"/>
+
+    <!-- Permissao para usar a câmera -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+
+    <!-- Permissao para salvar fotos/videos -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <!-- Permissão utilizada para vibrar o aparelho. -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <!-- Permissão utilizada para o GPS. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <!-- Permissão para biletar no Google Play. -->
+    <uses-permission android:name="com.android.vending.BILLING"/>
+
+    <!-- O GCM precisa se conectar a uma conta do Google. -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+
+    <permission
+        android:name="com.laricafood.owner.permission.C2D_MESSAGE"
+        android:protectionLevel="signature"/>
+
+    <uses-permission android:name="com.bemobi.app.smstools.permission.C2D_MESSAGE"/>
+
+    <!-- Billing Google. -->
+    <uses-permission android:name="com.android.vending.BILLING"/>
+
+</manifest>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+
+    <!-- Mensagens -->
+    <LinearLayout
+        android:id="@+id/accountMessages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/accountCountUnreadMessages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="0"/>
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="3dp"
+                android:src="@drawable/ic_unread"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Facebook Image -->
+    <com.laricafood.owner.app.util.RoundedImageView
+        android:id="@+id/profilePicture"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="18dp"/>
+
+    <!-- Laricas + Status -->
+    <LinearLayout
+        android:id="@+id/aaa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profilePicture"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <!-- Estabelecimentos -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="2dip"
+                android:layout_height="42dip"
+                android:layout_marginTop="1dp"
+                android:background="#d8d8d8"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Laricas:"/>
+
+                <TextView
+                    android:id="@+id/qntdEstabelecimentos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
+                    android:text=" -- "/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Status -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="2dip"
+                android:layout_height="42dip"
+                android:layout_marginTop="1dp"
+                android:background="#d8d8d8"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Status:"/>
+
+                <TextView
+                    android:id="@+id/accountState"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Ativo"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Laricas Title -->
+    <TextView
+        android:id="@+id/accountNoEstabelecimentoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aaa"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Nenhuma larica foi encontrada . . ."
+        android:textSize="18dp"
+        android:visibility="gone"/>
+
+    <!-- Laricas SubTitle -->
+    <TextView
+        android:id="@+id/accountNoEstabelecimentoSubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/accountNoEstabelecimentoTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Não perca tempo! Crie logo sua larica!"
+        android:textSize="20dp"
+        android:visibility="gone"/>
+
+    <!-- Error Image -->
+    <ImageView
+        android:id="@+id/accountErrorImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aaa"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_error"
+        android:visibility="gone"/>
+
+    <!-- Laricas -->
+    <ListView
+        android:id="@+id/accountList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aaa"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"></ListView>
+
+</RelativeLayout>
