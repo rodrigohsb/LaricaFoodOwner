@@ -1,4 +1,4 @@
-# LaricaFood  [![Google Play](http://developer.android.com/images/brand/en_generic_rgb_wo_45.png)]()
+# LaricaFoodOwner  [![Google Play](http://developer.android.com/images/brand/en_generic_rgb_wo_45.png)]()
 
 This repository contains the source code for the LaricaFood Android app.
 
