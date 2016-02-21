@@ -16,31 +16,35 @@ import java.io.OutputStream;
  */
 public class Utils
 {
-    public static void CopyStream (InputStream is, OutputStream os)
-    {
-        final int buffer_size = 1024;
-        try
-        {
-            byte[] bytes = new byte[buffer_size];
-            for (; ; )
-            {
-                int count = is.read(bytes, 0, buffer_size);
-                if (count == -1)
-                    break;
-                os.write(bytes, 0, count);
-            }
-        } catch (Exception ex)
-        {
-        }
-    }
-
     public static User getUser (Context ctx)
     {
 
+        User user = getUserPreferences(ctx);
+
+        if (user != null)
+        {
+            return user;
+        }
+
+        user = getUserDB(ctx);
+
+        if (user != null)
+        {
+            return user;
+        }
+
+        //TODO Buscar no server!!            
+
+        return null;
+    }
+
+    private static User getUserPreferences (Context ctx)
+    {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(ctx);
 
         // Busca no cache
         String json = sharedPreferences.getString(Constants.USER, Constants.USER);
+
         if (json != null)
         {
             try
@@ -52,19 +56,20 @@ public class Utils
                 e.printStackTrace();
             }
         }
+        return null;
+    }
 
-        //Busca no banco
+    private static User getUserDB (Context ctx)
+    {
         try
         {
             User user = UserRepository.getInstance(ctx).getUser();
             //TODO Colocar no cache
             return user;
-        }
+        } 
         catch (Exception e)
         {
             e.printStackTrace();
-            //Não tem no cache e nem no banco.
-            //TODO Buscar no server!!
         }
         return null;
     }

@@ -53,11 +53,11 @@ public class SplashActivity extends AppCompatActivity
 
         if (isFirtTimeOrCleanCache)
         {
-            it = new Intent(ctx, TutorialActivity.class);
+            it = new Intent(ctx, HomeActivity.class);
         }
         else if (alreadySawTutorial && user == null)
         {
-            it = new Intent(ctx, FacebookActivity.class);
+            it = new Intent(ctx, HomeActivity.class);
         }
         else
         {
@@ -67,7 +67,7 @@ public class SplashActivity extends AppCompatActivity
 
             if (hasNoAccount)
             {
-                it = new Intent(ctx, PaymentActivity.class);
+                it = new Intent(ctx, HomeActivity.class);
             }
             else
             {

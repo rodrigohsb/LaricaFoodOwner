@@ -53,16 +53,22 @@ public class FacebookActivity extends AppCompatActivity
             {
                 User user = Utils.getUser(ctx);
 
+                Intent it;
+
                 if (user == null)
                 {
                     startService(new Intent(ctx, RegistrationService.class));
-                    startActivity(new Intent(ctx, PaymentActivity.class));
+                    
+                    //TODO Buscar no server
+                    
+                    it = new Intent(ctx, PaymentActivity.class);
                 }
                 else
                 {
-                    startActivity(new Intent(ctx, HomeActivity.class));
+                    it = new Intent(ctx, HomeActivity.class);
                 }
 
+                startActivity(it);
                 finish();
             }
 

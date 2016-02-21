@@ -83,31 +83,6 @@ public class Teste
         MessageRepository.getInstance(ctx).saveAll(messageList);
     }
 
-    public static List<Category> getCategories ()
-    {
-        List<Category> categories = new ArrayList<>();
-
-        Category c1 = new Category("Hamburguer", R.drawable.ic_home_hamburger);
-        Category c2 = new Category("Cachorro - Quente", R.drawable.ic_home_hotdog);
-        Category c3 = new Category("Churrasquinho", R.drawable.ic_home_churrasquinho);
-        Category c4 = new Category("Pizza", R.drawable.ic_home_pizza);
-        Category c5 = new Category("Saduíche Natural", R.drawable.ic_home_sanduiche_natural);
-        Category c6 = new Category("Wrap", R.drawable.ic_home_wrap);
-        Category c7 = new Category("Doce", R.drawable.ic_home_cake);
-        Category c8 = new Category("Sorvete", R.drawable.ic_home_icecream);
-        categories.add(c1);
-        categories.add(c2);
-        categories.add(c3);
-        categories.add(c4);
-        categories.add(c5);
-        categories.add(c6);
-        categories.add(c7);
-        categories.add(c8);
-        //Category c9 = new Category("Milho", R.drawable.ic_home_corn);
-        //categories.add(c9);
-        return categories;
-    }
-
     public static User getUser ()
     {
         return Teste.user;

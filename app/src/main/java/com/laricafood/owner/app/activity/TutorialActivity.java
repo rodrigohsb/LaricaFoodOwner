@@ -8,7 +8,6 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.facebook.AccessToken;
 import com.facebook.FacebookSdk;
 import com.facebook.Profile;
 import com.laricafood.owner.app.R;
@@ -38,17 +37,17 @@ public class TutorialActivity extends AppCompatActivity
             @Override
             public void onClick (View v)
             {
-                if (Profile.getCurrentProfile() == null && AccessToken.getCurrentAccessToken() == null)
+                Intent it;
+                if (Profile.getCurrentProfile() == null)
                 {
                     sharedPreferences.edit().putBoolean(Constants.IS_FIRST_TIME, false).apply();
-
-                    startActivity(new Intent(ctx, FacebookActivity.class));
-                    finish();
+                    it = new Intent(ctx, FacebookActivity.class);
                 }
                 else
                 {
-                    startActivity(new Intent(ctx, HomeActivity.class));
+                    it = new Intent(ctx, HomeActivity.class);
                 }
+                startActivity(it);
                 finish();
             }
         });

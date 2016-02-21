@@ -27,7 +27,6 @@ import com.laricafood.owner.app.bean.Message;
 import com.laricafood.owner.app.bean.User;
 import com.laricafood.owner.app.persistence.MessageRepository;
 import com.laricafood.owner.app.persistence.UserRepository;
-import com.laricafood.owner.app.teste.Teste;
 import com.laricafood.owner.app.util.ConnectionUtils;
 import com.laricafood.owner.app.util.Constants;
 
@@ -74,7 +73,7 @@ public class HomeActivity extends AppCompatActivity
         {
             accountCountUnreadMessages.setTypeface(null, Typeface.BOLD);
         }
-        accountCountUnreadMessages.setText(countUnreadMessages);
+        accountCountUnreadMessages.setText(String.valueOf(countUnreadMessages));
 
         accountMessages.setOnClickListener(new View.OnClickListener()
         {
@@ -90,7 +89,7 @@ public class HomeActivity extends AppCompatActivity
 
     private int countUnreadMessages ()
     {
-        Teste.createMessages(ctx);
+//        Teste.createMessages(ctx);
         final List<Message> messages = MessageRepository.getInstance(ctx).getAll();
 
         if (messages.isEmpty())
@@ -115,7 +114,7 @@ public class HomeActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu (Menu menu)
     {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.account, menu);
+        inflater.inflate(R.menu.home, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

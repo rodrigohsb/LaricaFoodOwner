@@ -3,9 +3,8 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context=".HomeActivity">
     <item
-        android:id="@+id/action_account"
-        android:icon="@drawable/ic_action_account"
-        android:title="Minha conta"
-        android:visible="true"
+        android:id="@+id/action_add"
+        android:icon="@drawable/ic_action_add"
+        android:title="Nova larica"
         app:showAsAction="always"/>
 </menu>
